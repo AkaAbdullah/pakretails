@@ -1,0 +1,55 @@
+{% extends 'login/base.html' %}
+{% block title %}
+Login |
+{% endblock title %}
+
+
+{% block content %}
+
+<section class="section">
+    <div class="columns">
+        <div class="column is-4 is-narrow">
+            <div class="box">
+                <a href="{% url 'home' %}" class="button is-fullwidth is-medium is-link">Home</a>
+            </div>
+            <div class="box">
+                <a href="#" class="button is-fullwidth is-medium is-link">About Us</a>
+            </div>
+        </div>
+        <div class="column is-4">
+            <div class="box">
+                <p class="menu has-text-centered menu-label"> <strong class="is-size-5 ">L o g i n</strong> </p>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <br>
+                    <button class="button is-success is-fullwidth">Login</button>
+                    <br>
+                    {% if messages %}
+                    {% for message in messages %}
+                    <p class="has-text-centered">{{message}}</p>
+                    {% endfor %}
+                    {% endif %}
+                    <p class="has-text-centered"> <strong class="is-size-5 ">Don't Have a Account</strong>
+                    </p>
+                    <br>
+                    <a href="{% url 'signupuser' %}" class="button is-fullwidth is-info">Sign Up
+                        Here</a>
+                </form>
+            </div>
+        </div>
+        <div class="column is-4">
+            <div class="box">
+                <a href="https://bulma.io">
+                    <figure class="figure has-text-centered">
+                        <img class="has-full-width" src="https://bulma.io/images/made-with-bulma.png"
+                            alt="Made with Bulma" width="228" height="34">
+                    </figure>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}

@@ -1,0 +1,42 @@
+{% extends 'login/base.html' %}
+{% block title %} Sign Up | {% endblock title %}
+
+
+{% block content %}
+
+<section class="section">
+    <div class="columns">
+        <div class="column is-4">
+            <div class="box">
+                <aside class="menu has-text-centered">
+                    <p class="menu-label"> <strong class="is-size-5 ">M e n u</strong> </p>
+                    <ul class="menu-list">
+                        <li><a class="button is-success" href="{% url 'signupuser' %}">Sign Up</a></li>
+                        <li><a class="button" href="{% url 'loginuser' %}">Login</a></li>
+                        <li><a class="button">About</a></li>
+                        <li><a class="button" href="{% url 'home' %}">Home</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+        <div class="column is-4">
+            <div class="box">
+                <p class=" menu menu-label has-text-centered"> <strong class="is-size-5 ">sign up</strong> </p>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="button is-success is-fullwidth">Sign Up</button>
+                </form>
+            </div>
+        </div>
+        <div class="column is-4">
+            <div class="box">
+                <p class=" menu menu-label has-text-centered"> <strong class="is-size-5 ">Already Have an
+                        account</strong> </p>
+                <a href="{% url 'loginuser' %}" class="button is-success is-fullwidth">Login Here</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

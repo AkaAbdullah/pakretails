@@ -1,0 +1,43 @@
+{% extends 'login/base.html' %}
+
+{% load static %}
+{% block title %}Profile |{% endblock %}
+{% block content %}
+
+<section class="section">
+    <div class="columns">
+        <div class="column is-4">
+            <div class="box">
+                <a href="{% url 'home' %}" class="button is-link is-fullwidth">Home</a>
+                <br>
+                <a href="{% url 'updateinfo' %}" class="button is-link is-fullwidth">Update info</a>
+            </div>
+        </div>
+        <div class="column is-4">
+            <div class="box has-background-grey-lighter">
+                <p class="subtitle has-text-centered">Account Balance</p>
+                <p class="subtitle">RS. 500</p>
+                <p>Note: You can only use this money to buy stuff from our website</p>
+                <a href="#" class="button is-fullwidth">Withdraw money</a>
+            </div>
+        </div>
+        <div class="column is-4">
+            <div class="box has-background-warning">
+                <form method="POST">
+                    {% csrf_token %}
+                    <p class="subtitle has-text-centered">Track your Order</p>
+                    <input type="text" class="input" placeholder="Tracking no">
+                    <br>
+                    <button class="button is-danger is-fullwidth">Track</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="column is-4">
+        <div class="box">
+            <img src="{% static 'images/BOX.jpg' %}" alt="">
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
